@@ -15,3 +15,11 @@ npm run dev
 ```
 
 📖 Configuração, primeiro acesso e publicação: veja **[MANUAL.md](./MANUAL.md)**.
+
+## Telas
+
+Capturas de todas as páginas (computador e celular) em [`docs/telas`](./docs/telas).
+
+| Início | Sobre nós |
+| --- | --- |
+| ![Início](docs/telas/inicio-computador.png) | ![Sobre nós](docs/telas/sobre-computador.png) |
