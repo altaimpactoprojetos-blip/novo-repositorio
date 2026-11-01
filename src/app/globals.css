@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * Identidade visual — Mulheres com Visão
+ * Cores extraídas da logo oficial: vinho profundo + lavanda-gelo,
+ * complementadas por rosé, nude, off-white e dourado champagne.
+ */
+@theme {
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+
+  --color-wine-50: #fbf3f6;
+  --color-wine-100: #f4e2e9;
+  --color-wine-200: #e6c2d0;
+  --color-wine-300: #cf93aa;
+  --color-wine-400: #a85d7c;
+  --color-wine-500: #85405f;
+  --color-wine-600: #6b2848;
+  --color-wine-700: #5a1833; /* fundo do banner */
+  --color-wine-800: #4c0f28; /* cor da logo */
+  --color-wine-900: #3a0b1f;
+  --color-wine-950: #240513;
+
+  --color-lilac-50: #f6f7fc;
+  --color-lilac-100: #eceff8;
+  --color-lilac-200: #d6dcf0; /* cor clara da logo */
+  --color-lilac-300: #bcc4e2;
+  --color-lilac-400: #9aa3cb;
+
+  --color-mauve: #7a4563;
+  --color-blush: #f5e6e8;
+  --color-rose: #e3bcc4;
+  --color-rose-deep: #c98d9b;
+  --color-nude: #ecdcd0;
+  --color-ivory: #fbf8f5;
+  --color-champagne: #c9a978;
+  --color-champagne-light: #e9dbc1;
+  --color-cocoa: #3d2530;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(0, -18px, 0) scale(1.03);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  --background: #fbf8f5;
+  --foreground: #3d2530;
+  --card: #ffffff;
+  --card-foreground: #3d2530;
+  --popover: #ffffff;
+  --popover-foreground: #3d2530;
+  --primary: #4c0f28;
+  --primary-foreground: #f6f7fc;
+  --secondary: #f5e6e8;
+  --secondary-foreground: #4c0f28;
+  --muted: #f3ebe5;
+  --muted-foreground: #7d6570;
+  --accent: #e9dbc1;
+  --accent-foreground: #3d2530;
+  --destructive: #b42339;
+  --border: #ead9d6;
+  --input: #e4d2cf;
+  --ring: #85405f;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-variant-numeric: lining-nums;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-wine-800);
+  }
+  ::selection {
+    background: var(--color-wine-800);
+    color: var(--color-lilac-100);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-mauve);
+  }
+  .container-site {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .bg-wine-gradient {
+    background:
+      radial-gradient(120% 90% at 0% 100%, rgba(133, 64, 95, 0.55), transparent 60%),
+      radial-gradient(90% 80% at 100% 0%, rgba(122, 69, 99, 0.6), transparent 55%), linear-gradient(135deg, #4c0f28 0%, #5a1833 50%, #3a0b1f 100%);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .prose-site p {
+    margin-bottom: 1.1em;
+    line-height: 1.85;
+  }
+  .prose-site p:last-child {
+    margin-bottom: 0;
+  }
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-champagne), transparent);
+  }
+  .glass {
+    background: rgba(251, 248, 245, 0.84);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+  .glass-dark {
+    background: rgba(58, 11, 31, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .masonry {
+    column-gap: 1rem;
+    columns: 1;
+  }
+  @media (min-width: 640px) {
+    .masonry {
+      columns: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .masonry {
+      columns: 3;
+      column-gap: 1.25rem;
+    }
+  }
+  .masonry > * {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 1024px) {
+    .masonry > * {
+      margin-bottom: 1.25rem;
+    }
+  }
+}
